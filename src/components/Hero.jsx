@@ -39,9 +39,9 @@ const Hero = () => {
   ];
 
   return (
-    <main className="p-6 flex flex-col">
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 flex flex-row rounded-xl space-x-3 p-6 mb-8 text-white">
-        <div className="bg-blue-500 text-center w-10 h-10 rounded-sm flex justify-center items-center">
+    <main className="p-6 flex flex-col bg-background text-foreground ml-6 mr-6">
+      <div className=" flex flex-row rounded-xl space-x-3 p-6 mb-8 ">
+        <div className=" text-center w-10 h-10 rounded-sm flex justify-center items-center">
           <Package className="w-8 h-8  text-center" />
         </div>
         <div>
@@ -50,7 +50,7 @@ const Hero = () => {
               <h2 className="text-xl font-semibold">
                 iHUZA INVENTORY - System Overview
               </h2>
-              <p className="text-blue-100">
+              <p className="text-foreground">
                 Monitor your iHUZA inventory and product assignments in
                 real-time.
               </p>

@@ -1,11 +1,12 @@
 import AddedProducts from "../components/AddedProducts";
 import Hero from "../components/Hero";
-
+import UserTable from "../components/UserTable";
 const Dashboard = () => {
   return (
-    <div>
+    <div className="h-full">
       <Hero />
       <AddedProducts />
+      <UserTable />
     </div>
   );
 };

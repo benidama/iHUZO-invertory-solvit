@@ -9,7 +9,9 @@ import {
   Layers,
 } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
+
 import { useState } from "react";
+import { UserProvider } from "../providers/UserProvider";
 
 const SidebarContent = () => {
   const sidebarItems = [
@@ -68,44 +70,47 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="flex h-screen bg-gray-50 shadow-sm shadow-r shadow-gray-300">
-      <div className="absolute top-4 left-4 md:hidden z-20">
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="w-6 h-6 " /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
+    <UserProvider>
+      <nav className="flex min-h-screen bg-gray-50 shadow-sm shadow-r shadow-gray-300 ">
+        <div className="absolute top-4 left-4 md:hidden z-20">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="w-6 h-6 " /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
 
-      <aside
-        className={`fixed inset-y-0 p-10 sm:p-10 md:p-0 left-0 z-10 transform bg-white transition-transform duration-200 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:static md:translate-x-0`}
-      >
-        <SidebarContent />
-      </aside>
+        <aside
+          className={`fixed inset-y-0 p-10 sm:p-10 md:p-0 left-0 z-10 transform bg-white transition-transform duration-200 ease-in-out ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          } md:static md:translate-x-0`}
+        >
+          <SidebarContent />
+        </aside>
 
-      {isOpen && (
-        <button
-          type="button"
-          aria-label="Close sidebar overlay"
-          className="fixed inset-0 bg-black bg-opacity-20 md:hidden"
-          onClick={() => setIsOpen(false)}
-          style={{
-            background: "transparent",
-            padding: 0,
-            margin: 0,
-            width: "100%",
-            height: "100%",
-          }}
-        />
-      )}
+        {isOpen && (
+          <button
+            type="button"
+            aria-label="Close sidebar overlay"
+            className="fixed inset-0 bg-black bg-opacity-20 md:hidden"
+            onClick={() => setIsOpen(false)}
+            style={{
+              background: "transparent",
+              padding: 0,
+              margin: 0,
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        )}
 
-      <div className="flex mt-2 md:mt-3 lg:mt-0  justify-start w-full flex-col ">
-        <TopBar />
-        <main className="p-6 ">
-          <Outlet />
-        </main>
-      </div>
-    </nav>
+        <div className="flex mt-2 md:mt-3 lg:mt-0  justify-start w-full flex-col ">
+          <TopBar />
+
+          <main className="p-6 ">
+            <Outlet />
+          </main>
+        </div>
+      </nav>
+    </UserProvider>
   );
 };
 

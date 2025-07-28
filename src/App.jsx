@@ -6,21 +6,24 @@ import Dashboard from "./pages/Dashboard";
 import Categories from "./pages/Categories";
 import Assignments from "./pages/Assignments";
 import NoPage from "./pages/NoPage";
+import { ThemeProvider } from "./providers/ThemeProvider";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="users" element={<Users />} />
-          <Route path="products" element={<Products />} />
-          <Route path="assignments" element={<Assignments />} />
-          <Route path="categories" element={<Categories />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="users" element={<Users />} />
+            <Route path="products" element={<Products />} />
+            <Route path="assignments" element={<Assignments />} />
+            <Route path="categories" element={<Categories />} />
+            <Route path="*" element={<NoPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 
