@@ -1,14 +1,13 @@
-import AddedProducts from "../components/AddedProducts";
 import Hero from "../components/Hero";
+import ProductList from "../components/ProductList";
 import UserTable from "../components/UserTable";
-const Dashboard = () => {
+
+export default function Dashboard() {
   return (
-    <div className="h-full">
+    <div>
       <Hero />
-      <AddedProducts />
+      <ProductList />
       <UserTable />
     </div>
   );
-};
-
-export default Dashboard;
+}

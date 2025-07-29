@@ -7,9 +7,10 @@ import {
   Book,
   AlignCenter,
   Layers,
+  LogOut,
 } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
-
+import useTheme from "../hooks/useTheme";
 import { useState } from "react";
 import { UserProvider } from "../providers/UserProvider";
 
@@ -21,15 +22,28 @@ const SidebarContent = () => {
     { to: "/assignments", icon: AlignCenter, label: "Assignments", count: 10 },
     { to: "/categories", icon: Layers, label: "Categories" },
   ];
+  const { theme } = useTheme();
 
   return (
-    <div className="w-64 h-full bg-white shadow-sm shadow-b shadow-gray-300">
+    <div
+      className={`  ${
+        theme === "light"
+          ? "w-64 h-full bg-white shadow-sm shadow-b shadow-gray-300"
+          : "bg-gray-800 w-64 h-full text-white"
+      }`}
+    >
       <div className="flex items-center p-4">
         <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
           <Package className="w-5 h-5 text-white" />
         </div>
         <div>
-          <h1 className="text-lg font-semibold text-gray-900">iHUZA</h1>
+          <h1
+            className={`text-lg font-semibold ${
+              theme === "light" ? "text-gray-900" : "text-gray-50"
+            }`}
+          >
+            iHUZA
+          </h1>
           <p className="text-xs text-gray-500 uppercase tracking-wide">
             INVENTORY
           </p>
@@ -44,37 +58,81 @@ const SidebarContent = () => {
             className={({ isActive }) =>
               `flex items-center justify-between px-4 py-3 mx-2 rounded-lg transition-colors ${
                 isActive
-                  ? "bg-blue-50 text-blue-700"
-                  : "text-gray-600 hover:bg-gray-50"
+                  ? "bg-gray-400 text-blue-700"
+                  : "text-gray-600 hover:bg-gray-500"
               }`
             }
             aria-current={({ isActive }) => (isActive ? "page" : undefined)}
           >
             <span className="flex items-center">
-              <item.icon className="w-5 h-5 mr-3" />
-              <span className="text-sm font-medium">{item.label}</span>
+              <item.icon
+                className={`w-5 h-5 mr-3 ${
+                  theme === "light" ? "text-gray-600" : "text-gray-500"
+                }`}
+              />
+              <span
+                className={`${
+                  theme === "light" ? "text-black" : "text-gray-400"
+                } max-sm:text-[12px]`}
+              >
+                {item.label}
+              </span>
             </span>
             {!!item.count && (
-              <span className="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">
+              <span
+                className={`text-xs px-2 py-1 rounded-full ${
+                  theme === "light"
+                    ? "bg-gray-200 text-gray-700"
+                    : "bg-gray-400 text-gray-700"
+                }`}
+              >
                 {item.count}
               </span>
             )}
           </NavLink>
         ))}
       </nav>
+      <NavLink className="flex flex-row pl-5 mt-96 hover:bg-gray-500 hover:text-white  items-center gap-2 px-4 py-3 mx-2 rounded-lg">
+        <LogOut
+          className={` ${
+            theme === "light" ? "text-gray-600" : "text-gray-500"
+          } max-sm:text-sm`}
+        />
+        <p
+          className={`${
+            theme === "light" ? "text-black" : "text-gray-400"
+          } max-sm:text-sm`}
+        >
+          Logout
+        </p>
+      </NavLink>
     </div>
   );
 };
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { theme } = useTheme();
   return (
     <UserProvider>
-      <nav className="flex min-h-screen bg-gray-50 shadow-sm shadow-r shadow-gray-300 ">
-        <div className="absolute top-4 left-4 md:hidden z-20">
+      <nav
+        className={` shadow-sm relative  ${
+          theme === "light"
+            ? "flex min-h-screen bg-gray-50 shadow-sm shadow-r shadow-gray-300"
+            : "bg-gray-900 border border-gray-700 text-white flex min-h-screen"
+        }`}
+      >
+        <div className="absolute top-4  md:hidden z-20">
           <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="w-6 h-6 " /> : <Menu className="w-6 h-6" />}
+            {isOpen ? (
+              <X
+                className={`w-12 h-12 pr-1 ${
+                  theme === "light" ? "text-gray-600" : "text-black"
+                }`}
+              />
+            ) : (
+              <Menu className="w-15 h-10 pl-1" />
+            )}
           </button>
         </div>
 
