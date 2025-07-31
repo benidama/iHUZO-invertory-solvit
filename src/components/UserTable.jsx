@@ -220,7 +220,11 @@ const UserTable = () => {
           {users.map((user) => (
             <div
               key={user.id}
-              className="p-4 hover:bg-gray-50 transition-colors"
+              className={`p-4 transition-colors ${
+                theme === "light"
+                  ? "bg-gray-50 border-gray-200 hover:bg-gray-50"
+                  : "bg-gray-800 border-gray-500 text-gray-100 hover:bg-amber-200 hover:text-gray-900"
+              }`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3 flex-1 min-w-0">

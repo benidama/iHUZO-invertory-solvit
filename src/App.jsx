@@ -3,7 +3,6 @@ import Navigation from "./components/Navigation";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import Users from "./pages/Users";
-import Assignments from "./pages/Assignments";
 import Categories from "./pages/Categories";
 import NoPage from "./pages/NoPage";
 import { ThemeProvider } from "./providers/ThemeProvider";
@@ -20,7 +19,6 @@ export default function App() {
               <Route path="/" element={<Navigation />}>
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="products" element={<Products />} />
-                <Route path="assignments" element={<Assignments />} />
                 <Route path="categories" element={<Categories />} />
                 <Route path="users" element={<Users />} />
                 <Route path="*" element={<NoPage />} />

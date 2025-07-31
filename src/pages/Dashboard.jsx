@@ -4,7 +4,7 @@ import UserTable from "../components/UserTable";
 
 export default function Dashboard() {
   return (
-    <div>
+    <div className="font-poppins">
       <Hero />
       <ProductList />
       <UserTable />

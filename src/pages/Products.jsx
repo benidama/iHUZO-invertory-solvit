@@ -1,5 +1,6 @@
-function Products() {
-  return <div>Products</div>;
-}
+import ProductList from "../components/ProductList";
+const Products = () => {
+  return <ProductList />;
+};
 
 export default Products;

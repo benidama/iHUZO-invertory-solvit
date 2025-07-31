@@ -8,7 +8,7 @@ const TopBar = () => {
 
   return (
     <header
-      className={`px-14 py-2 shadow-sm ${
+      className={`sticky top-1 sm:z-1 z-0 md:z-50  px-14 py-2 shadow-sm ${
         theme === "light"
           ? "bg-white shadow-sm shadow-b shadow-gray-300 text-gray-900"
           : "bg-gray-800 border border-gray-700 text-white"

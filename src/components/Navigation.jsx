@@ -1,14 +1,5 @@
 import TopBar from "./TopBar";
-import {
-  Menu,
-  X,
-  Users,
-  Package,
-  Book,
-  AlignCenter,
-  Layers,
-  LogOut,
-} from "lucide-react";
+import { Menu, X, Users, Package, Book, Layers, LogOut } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import useTheme from "../hooks/useTheme";
 import { useState } from "react";
@@ -19,7 +10,6 @@ const SidebarContent = () => {
     { to: "/dashboard", icon: Book, label: "Dashboard" },
     { to: "/users", icon: Users, label: "Users", count: 116 },
     { to: "/products", icon: Package, label: "Products", count: 100 },
-    { to: "/assignments", icon: AlignCenter, label: "Assignments", count: 10 },
     { to: "/categories", icon: Layers, label: "Categories" },
   ];
   const { theme } = useTheme();
@@ -126,12 +116,12 @@ const Navigation = () => {
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? (
               <X
-                className={`w-12 h-12 pr-1 ${
+                className={`w-12 h-12 ${
                   theme === "light" ? "text-gray-600" : "text-black"
                 }`}
               />
             ) : (
-              <Menu className="w-15 h-10 pl-1" />
+              <Menu className="w-12 h-10" />
             )}
           </button>
         </div>
