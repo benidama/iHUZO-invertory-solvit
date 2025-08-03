@@ -1,5 +1,7 @@
-function Categories() {
-  return <div>Categories</div>;
-}
+import ProductCategories from "../components/ProductCategories";
+
+const Categories = () => {
+  return <ProductCategories />;
+};
 
 export default Categories;
