@@ -10,6 +10,7 @@ export function UsersProvider({ children }) {
       role: "Admin",
       status: "Active",
       lastLogin: "2 hours ago",
+      password: "Estote1",
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ export function UsersProvider({ children }) {
       role: "Manager",
       status: "Active",
       lastLogin: "5 hours ago",
+      password: "Estote2",
     },
     {
       id: 3,
@@ -26,6 +28,7 @@ export function UsersProvider({ children }) {
       role: "Staff",
       status: "Active",
       lastLogin: "1 day ago",
+      password: "Estote3",
     },
     {
       id: 4,
@@ -34,6 +37,7 @@ export function UsersProvider({ children }) {
       role: "Staff",
       status: "Inactive",
       lastLogin: "3 days ago",
+      password: "Estote4",
     },
     {
       id: 5,
@@ -42,6 +46,7 @@ export function UsersProvider({ children }) {
       role: "Staff",
       status: "Active",
       lastLogin: "6 hours ago",
+      password: "Estote5",
     },
     {
       id: 6,
@@ -50,6 +55,7 @@ export function UsersProvider({ children }) {
       role: "Manager",
       status: "Active",
       lastLogin: "30 min ago",
+      password: "Estote6",
     },
     {
       id: 7,
@@ -58,6 +64,7 @@ export function UsersProvider({ children }) {
       role: "Staff",
       status: "Active",
       lastLogin: "2 days ago",
+      password: "Estote7",
     },
     {
       id: 8,
@@ -66,6 +73,7 @@ export function UsersProvider({ children }) {
       role: "Staff",
       status: "Active",
       lastLogin: "2 hours ago",
+      password: "Estote8",
     },
     {
       id: 9,
@@ -74,6 +82,7 @@ export function UsersProvider({ children }) {
       role: "Admin",
       status: "Active",
       lastLogin: "1 hour ago",
+      password: "Estote9",
     },
     {
       id: 10,
@@ -82,6 +91,7 @@ export function UsersProvider({ children }) {
       role: "Staff",
       status: "Inactive",
       lastLogin: "1 week ago",
+      password: "Estote10",
     },
   ]);
 

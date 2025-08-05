@@ -1,6 +1,6 @@
 import TopBar from "./TopBar";
 import { Menu, X, Users, Package, Book, Layers, LogOut } from "lucide-react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useTheme from "../hooks/useTheme";
 import { useState } from "react";
 import { UserProvider } from "../providers/UserProvider";
@@ -13,6 +13,10 @@ const SidebarContent = () => {
     { to: "/categories", icon: Layers, label: "Categories" },
   ];
   const { theme } = useTheme();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate("/login");
+  };
 
   return (
     <div
@@ -82,7 +86,10 @@ const SidebarContent = () => {
           </NavLink>
         ))}
       </nav>
-      <NavLink className="flex flex-row pl-5 mt-96 hover:bg-gray-500 hover:text-white  items-center gap-2 px-4 py-3 mx-2 rounded-lg">
+      <button
+        className="flex flex-row pl-5 mt-96 hover:bg-gray-500 hover:text-white  items-center gap-2 px-4 py-3 mx-2 rounded-lg"
+        onClick={handleLogout}
+      >
         <LogOut
           className={` ${
             theme === "light" ? "text-gray-600" : "text-gray-500"
@@ -95,7 +102,7 @@ const SidebarContent = () => {
         >
           Logout
         </p>
-      </NavLink>
+      </button>
     </div>
   );
 };
