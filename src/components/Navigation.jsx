@@ -52,8 +52,8 @@ const SidebarContent = () => {
             className={({ isActive }) =>
               `flex items-center justify-between px-4 py-3 mx-2 rounded-lg transition-colors ${
                 isActive
-                  ? "bg-gray-400 text-blue-700"
-                  : "text-gray-600 hover:bg-gray-500"
+                  ? "bg-gray-200 text-gray-700"
+                  : "text-gray-600 hover:bg-gray-100"
               }`
             }
             aria-current={({ isActive }) => (isActive ? "page" : undefined)}
@@ -66,7 +66,7 @@ const SidebarContent = () => {
               />
               <span
                 className={`${
-                  theme === "light" ? "text-black" : "text-gray-400"
+                  theme === "light" ? "text-black" : "text-gray-400 "
                 } max-sm:text-[12px]`}
               >
                 {item.label}

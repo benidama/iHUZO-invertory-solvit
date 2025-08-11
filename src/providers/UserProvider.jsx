@@ -3,7 +3,7 @@ import { UserContext } from "../contexts/UserContext";
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState({
-    name: "Quintus",
+    name: "Admin",
     email: "benidama02@gmail.com",
   });
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 export default function Login() {
@@ -46,8 +46,10 @@ export default function Login() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4">Login Here</h1>
+    <div className="max-w-md mx-auto p-4 flex flex-col min-h-dvh justify-center items-center">
+      <h1 className="text-2xl font-semibold mb-4">
+        Welcome to iHUZA INVENTORY
+      </h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input
           label="Username"
@@ -77,7 +79,7 @@ export default function Login() {
         {errors.login && <p className="text-sm text-red-600">{errors.login}</p>}
 
         <Button label="Log In" type="submit" />
-        <p className="mt-2">
+        {/* <p className="mt-2">
           Don't you have an account?{" "}
           <Link
             className="text-xl text-green-600 hover:underline hover:text-palette-200"
@@ -85,7 +87,7 @@ export default function Login() {
           >
             Register here
           </Link>
-        </p>
+        </p> */}
       </form>
     </div>
   );

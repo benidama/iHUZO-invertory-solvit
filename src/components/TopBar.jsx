@@ -1,6 +1,7 @@
-import { Bell, Sun, Settings, User, Moon } from "lucide-react";
+import { Bell, Sun, User, Moon } from "lucide-react";
 import useUser from "../hooks/useUser";
 import useTheme from "../hooks/useTheme";
+import SettingsDropdown from "./SettingsDropdown";
 
 const TopBar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -51,7 +52,8 @@ const TopBar = () => {
           </button>
 
           <button className="p-2 hover:text-gray-600">
-            <Settings className="w-5 h-5" />
+            {/* <Settings className="w-5 h-5" /> */}
+            <SettingsDropdown />
           </button>
 
           <div className="flex items-center space-x-2">
