@@ -52,7 +52,6 @@ const TopBar = () => {
           </button>
 
           <button className="p-2 hover:text-gray-600">
-            {/* <Settings className="w-5 h-5" /> */}
             <SettingsDropdown />
           </button>
 
