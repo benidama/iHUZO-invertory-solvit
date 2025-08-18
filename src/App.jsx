@@ -12,32 +12,35 @@ import { UsersProvider } from "./providers/UsersProvider";
 import { AuthUsersProvider } from "./contexts/AuthUsersProvider";
 import { CategoryProvider } from "./contexts/CategoryContext";
 import { SettingsProvider } from "./contexts/SettingsProvider";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 export default function App() {
   return (
     <SettingsProvider>
-      <UsersProvider>
-        <CategoryProvider>
-          <AuthUsersProvider>
-            <ProductProvider>
-              <ThemeProvider>
-                <BrowserRouter>
-                  <Routes>
-                    <Route path="login" element={<Login />} />
-                    <Route path="/" element={<Navigation />}>
-                      <Route path="dashboard" element={<Dashboard />} />
-                      <Route path="products" element={<Products />} />
-                      <Route path="categories" element={<Categories />} />
-                      <Route path="users" element={<Users />} />
-                      <Route path="*" element={<NoPage />} />
-                    </Route>
-                  </Routes>
-                </BrowserRouter>
-              </ThemeProvider>
-            </ProductProvider>
-          </AuthUsersProvider>
-        </CategoryProvider>
-      </UsersProvider>
+      <LanguageProvider>
+        <UsersProvider>
+          <CategoryProvider>
+            <AuthUsersProvider>
+              <ProductProvider>
+                <ThemeProvider>
+                  <BrowserRouter>
+                    <Routes>
+                      <Route path="login" element={<Login />} />
+                      <Route path="/" element={<Navigation />}>
+                        <Route path="dashboard" element={<Dashboard />} />
+                        <Route path="products" element={<Products />} />
+                        <Route path="categories" element={<Categories />} />
+                        <Route path="users" element={<Users />} />
+                        <Route path="*" element={<NoPage />} />
+                      </Route>
+                    </Routes>
+                  </BrowserRouter>
+                </ThemeProvider>
+              </ProductProvider>
+            </AuthUsersProvider>
+          </CategoryProvider>
+        </UsersProvider>
+      </LanguageProvider>
     </SettingsProvider>
   );
 }

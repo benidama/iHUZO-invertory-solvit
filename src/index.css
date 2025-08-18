@@ -148,3 +148,28 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.439 0 0);
 }
+/* 
+.goog-te-banner-frame.skiptranslate {
+  @apply hidden !important;
+}
+
+body > .skiptranslate {
+  @apply hidden !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-logo-link {
+  @apply hidden !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+  @apply hidden !important;
+}
+
+.goog-te-gadget img {
+  @apply hidden !important;
+} */
