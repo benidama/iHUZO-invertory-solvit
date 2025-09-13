@@ -7,7 +7,7 @@ import { UserProvider } from "../providers/UserProvider";
 
 const SidebarContent = () => {
   const sidebarItems = [
-    { to: "/dashboard", icon: Book, label: "Dashboard" },
+    { to: "", icon: Book, label: "Dashboard" },
     { to: "/users", icon: Users, label: "Users", count: 116 },
     { to: "/products", icon: Package, label: "Products", count: 100 },
     { to: "/categories", icon: Layers, label: "Categories" },

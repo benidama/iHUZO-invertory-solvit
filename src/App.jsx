@@ -27,11 +27,11 @@ export default function App() {
                     <Routes>
                       <Route path="login" element={<Login />} />
                       <Route path="/" element={<Navigation />}>
-                        <Route path="dashboard" element={<Dashboard />} />
+                        <Route index element={<Dashboard />} />
                         <Route path="products" element={<Products />} />
                         <Route path="categories" element={<Categories />} />
                         <Route path="users" element={<Users />} />
-                        <Route path="*" element={<NoPage />} />
+                        <Route path="*" element={<NoPage />} />                       
                       </Route>
                     </Routes>
                   </BrowserRouter>
