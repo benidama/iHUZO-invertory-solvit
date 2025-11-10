@@ -17,7 +17,7 @@ const LanguageSelector = () => {
       <option value="rw">Kinyarwanda</option>
       <option value="sw">Kishwahili</option>
       <option value="ru">Russian</option>
-      <option value="俄">Chinese</option>
+      <option value="zh">Chinese</option>
       <option value="es">Spanish</option>
       {/* Add more languages as needed */}
     </select>
