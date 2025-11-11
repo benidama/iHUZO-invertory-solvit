@@ -1,6 +1,7 @@
 // src/contexts/LanguageContext.js
 
 import React, { createContext, useState, useContext } from "react";
+import { useNotification } from './NotificationContext';
 
 const LanguageContext = createContext();
 

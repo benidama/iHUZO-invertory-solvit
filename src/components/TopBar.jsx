@@ -85,19 +85,22 @@
 // export default TopBar;
 // src/components/TopBar.jsx
 
-import React from "react";
+import React, { useState } from "react";
 import { Bell, Sun, Moon, User } from "lucide-react";
 import useUser from "../hooks/useUser";
 import useTheme from "../hooks/useTheme";
 import SettingsDropdown from "./SettingsDropdown";
 import useStickyState from "../hooks/useStickyState";
 import { useLanguage } from "../contexts/LanguageContext";
+import NotificationSettings from "./NotificationSettings";
+import { translate } from "../utils/translate";
 
 const TopBar = () => {
   const { theme, toggleTheme } = useTheme();
   const { user } = useUser();
   const [avatar, setAvatar] = useStickyState(null, "user-avatar");
   const { language } = useLanguage();
+  const [showNotifications, setShowNotifications] = useState(false);
 
   return (
     <header
@@ -114,19 +117,15 @@ const TopBar = () => {
               theme === "light" ? "text-black" : "text-white"
             }`}
           >
-            Dashboard
+            {translate("dashboard", language)}
           </h1>
           <p
             className={`${theme === "light" ? "text-black" : "text-gray-400"}`}
           >
-            Welcome Back, <span>{user.name}</span>
+            {translate("welcomeBack", language)}, <span>{user.name}</span>
           </p>
           <h1>
-            {language === "en"
-              ? "Welcome"
-              : language === "fr"
-              ? "Bienvenue"
-              : "Bienvenido"}
+            {translate("welcome", language)}
           </h1>
         </div>
 
@@ -142,7 +141,10 @@ const TopBar = () => {
               <Sun className="w-5 h-5" />
             )}
           </button>
-          <button className="relative p-2 hover:text-gray-600">
+          <button 
+            onClick={() => setShowNotifications(true)}
+            className="relative p-2 hover:text-gray-600"
+          >
             <Bell className="w-5 h-5" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full" />
           </button>
@@ -172,6 +174,21 @@ const TopBar = () => {
           </div>
         </div>
       </div>
+      
+      {/* Notification Settings Modal */}
+      {showNotifications && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="relative max-w-md w-full mx-4">
+            <button
+              onClick={() => setShowNotifications(false)}
+              className="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-lg z-10"
+            >
+              ✕
+            </button>
+            <NotificationSettings />
+          </div>
+        </div>
+      )}
     </header>
   );
 };

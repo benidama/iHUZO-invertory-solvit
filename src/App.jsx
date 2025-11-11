@@ -13,11 +13,14 @@ import { AuthUsersProvider } from "./contexts/AuthUsersProvider";
 import { CategoryProvider } from "./contexts/CategoryContext";
 import { SettingsProvider } from "./contexts/SettingsProvider";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { NotificationProvider } from "./contexts/NotificationContext";
+import NotificationContainer from "./components/NotificationContainer";
 
 export default function App() {
   return (
-    <SettingsProvider>
-      <LanguageProvider>
+    <NotificationProvider>
+      <SettingsProvider>
+        <LanguageProvider>
         <UsersProvider>
           <CategoryProvider>
             <AuthUsersProvider>
@@ -41,6 +44,8 @@ export default function App() {
           </CategoryProvider>
         </UsersProvider>
       </LanguageProvider>
-    </SettingsProvider>
+      </SettingsProvider>
+      <NotificationContainer />
+    </NotificationProvider>
   );
 }

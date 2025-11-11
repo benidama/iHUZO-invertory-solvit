@@ -4,13 +4,16 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useTheme from "../hooks/useTheme";
 import { useState } from "react";
 import { UserProvider } from "../providers/UserProvider";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translate } from "../utils/translate";
 
 const SidebarContent = () => {
+  const { language } = useLanguage();
   const sidebarItems = [
-    { to: "", icon: Book, label: "Dashboard" },
-    { to: "/users", icon: Users, label: "Users", count: 116 },
-    { to: "/products", icon: Package, label: "Products", count: 100 },
-    { to: "/categories", icon: Layers, label: "Categories" },
+    { to: "", icon: Book, label: translate("dashboard", language) },
+    { to: "/users", icon: Users, label: translate("users", language), count: 116 },
+    { to: "/products", icon: Package, label: translate("products", language), count: 100 },
+    { to: "/categories", icon: Layers, label: translate("categories", language) },
   ];
   const { theme } = useTheme();
   const navigate = useNavigate();
@@ -100,7 +103,7 @@ const SidebarContent = () => {
             theme === "light" ? "text-black" : "text-gray-400"
           } max-sm:text-sm`}
         >
-          Logout
+          {translate("logout", language)}
         </p>
       </button>
     </div>
